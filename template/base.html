@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<title>{% block title %}{{ site.configs.title or site.title }} {% endblock %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link type="image/x-icon" href="http://qfdk.me/img/favicon.gif" rel="shortcut icon">
+<link href="/template/css/bootstrap.min.css" rel="stylesheet">
+<link href="/template/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="/template/css/docs.css" rel="stylesheet">
+
+<style>
+h1,h2,h3,.masthead p,.subhead p,.marketing h2,.lead {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI",
+		"Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+	font-weight: normal;
+}
+body{
+  background-image:url("http://projet.qfdk.me/img/grid-18px-masked.png");
+  background-repeat: repeat-x，repeat-y;
+  background-position: 0 60px;
+}
+body>.navbar .brand {
+	color: #DDD;
+}
+</style>
+</head>
+<!-- 开始body -->
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+	<!--StartFragment-->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="brand" href="#">清风刀客'S blog</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active">
+							<a href="/">Index</a>
+						</li>
+					{% if has('posts') %}
+						<li class="active">
+							<a href="/archive">Archive</a>
+						</li>
+						{% if not site.configs.no_categories in ['yes', True, 'true'] and has('categories') %}
+						<li class="active">
+							<a href="/categories">Categories</a>
+						</li>
+						{% endif %}
+						{% if site.tags %}
+						<li class="active">
+							<a href="/archive?use=tags">Tags</a>
+						</li>
+						{% endif %}
+					{% endif %}
+						{% if has('images') and has('posts')%}
+						<li class="active">
+							<a href="/folder/">Photos</a>
+						</li>
+						{% endif %}
+						{% if has('links.md') %}
+						<li class="active">
+							<a href="/links.md">Links</a>
+						</li>
+						{% endif %}
+						{% if has('about.html') %}
+						<li class="active">
+							<a href="/about.html">About</a>
+						</li>
+						{% endif %}
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+<!-- 一个伟大的尝试几乎模仿Bootstrap -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>C'est quoi le patron de conception ？</h1>
+    <p class="lead">--->&nbsp;&nbsp;Un patron de conception est la meilleur solution connue a un problème de conception récurent.</p>
+  </div>
+</header>
+
+	<div class="container">
+			{% block content %}
+			{% endblock %}
+	</div>
+	<!-- /container -->
+	<!-- Footer
+    ================================================== -->
+	<footer class="footer">
+	<div class="container">
+		<p>
+			Code licensed under <a
+				href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache
+				License v2.0</a>, documentation under <a
+				href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC
+				BY 3.0</a>.
+		</p>
+		<ul class="footer-links">
+			<li><a href="about.html" target="_blank">关于</a></li>
+			<li class="muted">&middot;</li>
+			<li><a href="http://qfdk.me" target="_blank">HTML作者</a></li>
+		</ul>
+		<p>本Blog由 <a href="http://farbox.com/">FarBox</a> 强势驱动.</p>
+	</div>
+	</footer>
+	<script src="/template/js/jquery.js"></script>
+    <script src="/template/js/bootstrap.js"></script>
+    <script src="/template/js/holder.js"></script>
+	<script src="/template/js/prettify.js"></script>
+    <script src="/template/js/application.js"></script>
+<!-- 
+	<script src="http://v2.bootcss.com/assets/js/jquery.js"></script>
+	<script src="http://qfdk.farbox.com/t/js/bootstrap.js"></script>
+	<script src="http://v2.bootcss.com/assets/js/google-code-prettify/prettify.js"></script>
+	<script src="http://v2.bootcss.com/assets/js/holder/holder.js"></script>
+	<script src="http://v2.bootcss.com/assets/js/application.js"></script>
+	<script src="http://wrongwaycn.github.io/bootstrap/docs/assets/js/bootstrap-scrollspy.js"></script>
+ -->
+</body>
+</html>

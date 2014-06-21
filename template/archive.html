@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% set total_posts = get_posts(limit=300, sort='desc') %}
+{% if request.args.use == 'tags' %}
+    {% set entries = group(total_posts, 'tags') %}
+    {% set cpt= 1 %}
+{% else %}
+    {% set entries = group(total_posts, 'date:year', reverse=True) %}
+    {% set cpt= 1 %}
+{% endif %}
+{% block content %}
+<div class="row">
+    <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+            {% for year,posts in entries %}
+            <li><a href="#{{ year }}"><i class="icon-chevron-right"></i>{{ year }}</a></li>
+            {% endfor %}
+        </ul>
+    </div><!--  end span3 -->
+    <div class="span9">
+        <div class ="info">
+            <ul class="listooo">
+            {% for year, posts in entries %}
+                <section id="{{ year }}" >
+                <h2>{{ year }}</h2>
+                <hr/>
+                <ul class="list-group">
+                {% for post in posts %}
+                    <li class="list-group-item">
+                        <span class="date">{{ post.date | date("%Y-%m-%d") }}</span>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endfor %}
+            </section>
+
+            {% include 'include/paginator.html' %}
+
+            </ul>
+        </div>
+    </div><!-- end span9 -->
+</div>
+
+{% endblock %}
+
+
+

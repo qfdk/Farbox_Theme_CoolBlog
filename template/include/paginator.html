@@ -1,0 +1,15 @@
+{% if not paginator %}
+    {% set paginator = get_paginator() %}
+{% endif %}
+
+{% if paginator.has_previous or  paginator.has_next %}
+    
+    <ul class="pager">
+        {% if paginator.has_previous %}
+          <li><a  href="{{ paginator.previous_page_url }}">上一页</a></li>
+        {% endif %}
+        {% if paginator.has_next %}
+          <li><a  href="{{ paginator.next_page_url}}">下一页</a></li>
+        {% endif %}
+    </ul>
+{% endif %}

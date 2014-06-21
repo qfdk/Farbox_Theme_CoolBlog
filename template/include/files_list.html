@@ -1,0 +1,91 @@
+{% set by_mobile = is_mobile() or detect_device('ipad') %}
+{% if by_mobile %}
+    <link href="http://resource.farbox.com/photoswipe/photoswipe.css" type="text/css" rel="stylesheet" />
+
+	<script type="text/javascript" src="http://resource.farbox.com/photoswipe/code.photoswipe-3.0.5.min.js"></script>
+
+    <script type="text/javascript">
+		(function(window, PhotoSwipe){
+			document.addEventListener('DOMContentLoaded', function(){
+				var
+					options = {},
+					instance = PhotoSwipe.attach( window.document.querySelectorAll('#image_list li.image a'), options );
+
+			}, false);
+		}(window, window.Code.PhotoSwipe));
+	</script>
+{% endif %}
+
+<div class="row">
+			<div class="span3 bs-docs-sidebar">
+				<ul class="nav nav-list bs-docs-sidenav">
+ {% for file in files %}
+            {% if file.content_type== 'folder' %}
+<!-- 
+                    我是文件夹，我只能显示一次文件夹名称
+ -->
+			       <li><a href="#{{file.title}} "><i class="icon-chevron-right"></i>{{file.title}}</a></li>		
+                {% else %}
+
+                    <li><a href="#{{file.title}} "><i class="icon-chevron-right"></i>{{file.title}}</a></li>
+<!-- 
+                    我要显示每个图片的名称啊亲- -
+ -->        {% endif %}
+    {% endfor %}
+    
+
+				</ul>
+			</div>
+
+			<div class="span9">
+
+                    <div id="images_container">
+
+                                <ul class="image_list" id="image_list">
+                                {% for file in files %}
+                                    {% if file.content_type == 'folder' %}
+                                    <section id="{{file.title}}">
+                                    <div class="folder">
+                                        <a href="/file/{{file.path}}"><!-- 显示文件夹 -->
+                                            <img class ="img-rounded "src='{{ file.url }}?width=320&height=214&fixed=true' title="{{ file.title }}, {{ file.images_count }} photos in it." />
+                                            <br>
+                                            <span class="label label-inverse">相册上传于：{{file.title}} </span>
+                                            </br>
+                                            <h5>本相册有<span class="badge badge-inverse">{{file.images_count}}</span>张</h5>
+                                        </a>
+                                    </div>
+                                    </section>
+                                    {% else %}
+                                       <section id="{{file.title}}">
+                                        <div class="image"><!-- 显示文件夹下所有的图片 -->
+                                        <h4>{{file.title}}</h4>
+                                        <a href="{% if by_mobile %}{{ file.url }}{% else %}/file/{{file.path}}{% endif %}">
+                                            <img class="img-rounded" src='{{ file.url }}?width=320&height=214&fixed=true' title="{{ file.title }}" />
+                                        </a>
+                                    </div>
+                                    </br>
+                                    </section>
+                                    {% endif %}
+                                {% endfor %}
+                                </ul>
+                        <script type="text/javascript">
+
+                            function images_auto_margin(){
+                                var images_e = document.getElementById('image_list');
+                                images_e.style.marginLeft = 0;
+                                var width = document.width || document.body.clientWidth;
+                                if (images_e && width > 330){
+                                    images_e.style.marginLeft = ( width% 336) /2 + 'px';
+                                }
+                            }
+
+                            images_auto_margin();
+
+                            window.onresize = images_auto_margin;
+
+                        </script>
+
+</div>
+
+            </div><!--end span9-->
+</div><!--end row-->

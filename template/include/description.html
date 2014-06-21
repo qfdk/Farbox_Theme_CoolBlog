@@ -1,0 +1,36 @@
+{% if site.configs.no_cover and site.configs.no_cover not in ['yes', True] %}
+    {% set display_desc = True %}
+{% elif site.configs.use_cover in ['yes', True]%}
+    {% set display_desc = True %}
+{% endif %}
+
+{% if display_desc %}
+<div id="description">
+    {% if site.configs.cover %}
+        <img id="description_bg" src="{{ site.configs.cover }}?height=350"/>
+        {% set cover_author = site.configs.cover_author %}
+    {% endif %}
+
+    <div id="description_content"  {% if site.configs.cover %}class="with_bg"{% endif %}>
+        <div class="slogan">
+            <div class="slogan_content">
+                {% if site.description %}
+                    {{ site.description | linebreaks }}
+                {% else %}
+                <p>
+                    写作，是对生命的一种礼赞。
+                </p>
+                <p>
+                    我们沉浸于生活的时候，会遗忘生活赋予我们的理想；我们停下脚步，用笔尖与思想同黑夜对话的时候。
+                </p>
+                <p>
+                    我们就感觉到了自己。
+                    <a href="/template-readme#modify_description"><small style="color:darkred">如何修改这段文字？</small></a>
+                </p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

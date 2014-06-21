@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}{{ site.configs.title or site.title }}---{{ file.title }}{% endblock %}
+<!-- 
+
+{% block head %}
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes" name="viewport">
+{% endblock %}
+
+{% set next_one = get_connected_one('>') %}
+{% set pre_one = get_connected_one('<') %}
+ -->
+
+{% block content %}
+<div class="row">
+			<div class="span3 bs-docs-sidebar">
+				<ul class="nav nav-list bs-docs-sidenav">                      
+					<li><a href="{{file.url}} " class="active"><i class="icon-chevron-right"></i>点击看大图额</a></li>
+				</ul>
+			</div>
+			<div class="span9">
+                <div class="post">
+                        <div class="info">
+                                <span class="date">日期：{{ file.date | date('%Y-%m-%d %H:%M') }}</span>
+                            </div><!-- 照片的时间 -->
+                        <div id="image">
+                            <img src="{{ file.url }}" class="img-rounded"/>
+                            <div class="connected_images">
+                                <ul class="pager">
+                                {% if pre_one %}
+                                    <li><a href="/file/{{ pre_one.path }}">
+                                        <span>&lt;{{ pre_one.title }}</span>
+                                    </a></li>
+                                {% else %}
+                                   <li><a href="#pre_one" class="pre" id="pre_one">
+                                        <span>&lt;没有上一张了</span>
+                                    </a></li>
+                                {% endif %}
+
+                                {% if next_one %}
+                                    <li><a href="/file/{{ next_one.path }}" class="pager">
+                                        <span>&gt;{{ next_one.title }}</span>
+                                    </a></li>
+                                {% else %}
+                                    <li><a href="#next_one" class="pager" id="next_one">
+                                        <span>&gt;没有下一张了</span>
+                                    </a></li>
+                                {% endif %}
+                                </ul>
+                            </div>
+
+                        </div>
+                </div>
+            </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% if post and post.metadata.cover_link %}
+    {% set cover_link = post.metadata.cover_link %}
+{% elif site and site.configs.cover_link %}
+    {% set cover_link = site.configs.cover_link %}
+{% endif %}
+
+<div id="footer">
+    <div class="powered_by">
+        <a target='_blank' href="http://www.qfdk.me">Proudly Powered By qfdk.me</a>
+        {% if cover_link %}<a href="{{ cover_link }}" target="_blank">©Image</a>{% endif %}
+        <span>©2012-2015 qfkd Inc.</span>
+        <a href="/template">复制本大爷の模板</a>
+    </div>
+</div>
