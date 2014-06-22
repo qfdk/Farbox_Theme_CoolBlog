@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}{{ category.title }}{% endblock %}
+{% block menu %}
+        <li><a href="/">Home</a></li>
+        <li><a href="/archive">Archive</a></li>
+        <li class="active"><a href="/categories">Categories</a></li>
+        <li><a href="/archive?use=tags">Tags</a></li>
+        <li><a href="/about">About</a></li>
+{% endblock %}
+
+{% block content %}
+        {% include 'include/posts_list.html' %}
+{% endblock %}

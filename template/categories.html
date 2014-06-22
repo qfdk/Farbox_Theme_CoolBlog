@@ -5,20 +5,22 @@
         <li><a href="/archive">Archive</a></li>
         <li class="active"><a href="/categories">Categories</a></li>
         <li><a href="/archive?use=tags">Tags</a></li>
-        <li><a href="/about.html">About</a></li>
+        <li><a href="/about">About</a></li>
 {% endblock %}
 {% block content %}
-    <ul class="categories" id="categories">
+<article class="topcontent">
+    <!-- <ul class="categories" id="categories"> -->
     {% set categories = get_folders(level=[1,2], min_posts_count=1) %}
     {% for category in  sorted_by_position(categories)%}
-        <li>
+        <!-- <li> -->
             <a href="/category/{{ category.path }}">
                 <h3>{{ category.title }}</h3>
-                <span> {{ category.posts_count }} 篇文章</span>
+                <span class="label label-info"> {{ category.posts_count }} 篇文章</span>
             </a>
-        </li>
+        <!-- </li> -->
     {% endfor %}
-    </ul>
+    <!-- </ul> -->
+</article>
 <script type="text/javascript">
 
     function auto_margin(){
@@ -33,6 +35,5 @@
 
     window.onresize = auto_margin;
 
-</script>
-
+ </script>
 {% endblock %}
