@@ -1,43 +1,43 @@
 {% extends 'base.html' %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block menu %}
-        <li><a href="/">Home</a></li>
-        <li class="active"><a href="/archive">Archive</a></li>
-        <li><a href="/categories">Categories</a></li>
-        <li><a href="/archive?use=tags">Tags</a></li>
-        <li><a href="/about">About</a></li>
+<li><a href="/">Home</a></li>
+<li class="active"><a href="/archive">Archive</a></li>
+<li><a href="/categories">Categories</a></li>
+<li><a href="/archive?use=tags">Tags</a></li>
+<li><a href="/about">About</a></li>
 {% endblock %}
 {% block content %}
 <article class="topcontent">
-	<header>
-		<h2><a href="{{post.url}}" rel="bookmark" title="{{ post.title }}">{{ post.title }}</a></h2>
-	</header>
-	<footer>
-		<p class="post-info">
-		<span class="label label-info" title="发布日期">
-			<i class="icon-time"></i>
-			{{ post.date | date('%Y-%m-%d %H:%M') }}
-		</span>
-		<span class="label label-success" title="访问量">
-			<i class="icon-user"></i>
-			{{ post.visits or 0}}
-		</span>
+  <header>
+    <h2><a href="{{post.url}}" rel="bookmark" title="{{ post.title }}">{{ post.title }}</a></h2>
+  </header>
+  <footer>
+    <p class="post-info">
+      <span class="label label-info" title="发布日期">
+        <i class="icon-time"></i>
+        {{ post.date | date('%Y-%m-%d %H:%M') }}
+      </span>
+      <span class="label label-success" title="访问量">
+        <i class="icon-user"></i>
+        {{ post.visits or 0}}
+      </span>
 
-		{% if post.tags %}
-		<span class="label label-warning">
-			<i class="icon-tags"></i>
-			{% for tag in post.tags %}
-			<a href="/tags/{{ tag }}" style="color:#ffffff;">{{ tag }}</a>
-			{% endfor %}
-		</span>
-		{% endif %}
-		</p>
-	</footer>
-	<content>
-		<p>{{ post.content}}</p>
-	</content>
+      {% if post.tags %}
+      <span class="label label-warning">
+        <i class="icon-tags"></i>
+        {% for tag in post.tags %}
+        <a href="/tags/{{ tag }}" style="color:#ffffff;">{{ tag }}</a>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </p>
+  </footer>
+  <content>
+    <p>{{ post.content}}</p>
+  </content>
 </article>
 <article class="topcontent">
-	{% include 'include/comments.html' %}
+  {% include 'include/comments.html' %}
 </article>
 {% endblock %}

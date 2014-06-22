@@ -1,39 +1,39 @@
 {% extends 'base.html' %}
 {% block title %}Categories{% endblock %}
 {% block menu %}
-        <li><a href="/">Home</a></li>
-        <li><a href="/archive">Archive</a></li>
-        <li class="active"><a href="/categories">Categories</a></li>
-        <li><a href="/archive?use=tags">Tags</a></li>
-        <li><a href="/about">About</a></li>
+<li><a href="/">Home</a></li>
+<li><a href="/archive">Archive</a></li>
+<li class="active"><a href="/categories">Categories</a></li>
+<li><a href="/archive?use=tags">Tags</a></li>
+<li><a href="/about">About</a></li>
 {% endblock %}
 {% block content %}
 <article class="topcontent">
-    <!-- <ul class="categories" id="categories"> -->
-    {% set categories = get_folders(level=[1,2], min_posts_count=1) %}
-    {% for category in  sorted_by_position(categories)%}
-        <!-- <li> -->
-            <a href="/category/{{ category.path }}">
-                <h3>{{ category.title }}</h3>
-                <span class="label label-info"> {{ category.posts_count }} 篇文章</span>
-            </a>
-        <!-- </li> -->
-    {% endfor %}
-    <!-- </ul> -->
+  <!-- <ul class="categories" id="categories"> -->
+  {% set categories = get_folders(level=[1,2], min_posts_count=1) %}
+  {% for category in  sorted_by_position(categories)%}
+  <!-- <li> -->
+  <a href="/category/{{ category.path }}">
+    <h3>{{ category.title }}</h3>
+    <span class="label label-info"> {{ category.posts_count }} 篇文章</span>
+  </a>
+  <!-- </li> -->
+  {% endfor %}
+  <!-- </ul> -->
 </article>
 <script type="text/javascript">
 
-    function auto_margin(){
-        var e = document.getElementById('categories');
-        e.style.marginLeft = 0;
-        var width = document.width || document.body.clientWidth;
-        if (e && width > 302){
-            e.style.marginLeft = ( width% 306) /2 + 'px';
-        }
-    }
-    auto_margin();
+function auto_margin(){
+  var e = document.getElementById('categories');
+  e.style.marginLeft = 0;
+  var width = document.width || document.body.clientWidth;
+  if (e && width > 302){
+    e.style.marginLeft = ( width% 306) /2 + 'px';
+  }
+}
+auto_margin();
 
-    window.onresize = auto_margin;
+window.onresize = auto_margin;
 
- </script>
+</script>
 {% endblock %}
