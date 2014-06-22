@@ -3,20 +3,19 @@ endblock %}
 
 {% block content %}
 
-    <div id="error"> <h1> 少年你走错门了。 </h1> <div class="content">
+<div id="error"> <h1>迷路鸟</h1> <div class="content">
 
-            {%  if error %} {{ error | linebreaks }} <hr/> {% endif %}
+    {%  if error %} {{ error | linebreaks }} <hr/> {% endif %}
 
-            <p> 你所访问的页面、文件并不存在，可能已经被删除了，或者地址错了？ </p>
-            <p> 傻了吧 O(∩_∩)O~ </p>
+    <p> 你所访问的页面、文件并不存在，可能已经被删除了，或者地址错了？ </p>
 
-            <div class="links">
+    <div class="links">
 
-                <a href="/">>去首页看看</a> <a href="/">>Page accueil</a> <a
-                href="http://help.farbox.com/" target="_blank">帮助文档</a>
+        <a href="/">>去首页看看</a> <a href="/">>Page accueil</a> <a
+        href="http://help.farbox.com/" target="_blank">帮助文档</a>
 
-            </div>
+    </div>
 
-        </div> </div>
+</div> </div>
 
 {% endblock %}

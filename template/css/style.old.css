@@ -56,13 +56,13 @@ a img {
 }
 
 a:link, a:visited {
-	/* color: #3F8ECF; */
-	/* padding: 0 1px; */
+	color: #CF5C3F;
+	padding: 0 1px;
 	text-decoration: none;
 }
 
 a:hover, a:active {
-	background-color: #3F8ECF;
+	background-color: #CF5C3F;
 	color: #fff;
 	text-decoration: none;
 }
@@ -85,7 +85,7 @@ a:hover, a:active {
 	
 .mainHeader nav ul {
 	list-style: none; 
-	margin: 0px 0px 0px 35px;
+	margin: 0 auto;
 }
 
 .mainHeader nav ul li {
@@ -102,7 +102,7 @@ a:hover, a:active {
 }
 .mainHeader nav a:hover, .mainHeader nav a:active,
 .mainHeader nav .active a:link, .mainHeader nav .active a:visited {
-	background: #3F8ECF;
+	background: #CF5C3F;
 	color: #fff;
 	text-shadow: none !important;
 }
@@ -154,7 +154,6 @@ a:hover, a:active {
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;	
-	min-height: 610px;
 }
 
 .post-info {
@@ -240,7 +239,7 @@ a:hover, a:active {
 	.mainHeader nav {
 		background: #666;
 		font-size: 1.143em;
-		height: 240px;
+		height: 160px;
 		line-height: 30px;
 		margin-bottom: 0;
 		border-radius: 5px;
@@ -269,7 +268,7 @@ a:hover, a:active {
 	
 	.mainHeader nav a:active,
 	.mainHeader nav .active a:link, .mainHeader nav .active a:visited {
-		background: #3F8ECF;
+		background: #CF5C3F;
 		color: #fff;
 		text-shadow: none !important;
 	}

@@ -7,17 +7,15 @@
     {% set entries = group(total_posts, 'date:year', reverse=True) %}
     {% set cpt= 1 %}
 {% endif %}
+{% block menu %}
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href="/archive">Archive</a></li>
+        <li><a href="/categories">Categories</a></li>
+        <li><a href="/archive?use=tags">Tags</a></li>
+        <li><a href="/about.html">About</a></li>
+{% endblock %}
 {% block content %}
-<div class="row">
-    <div class="span3 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav">
-            {% for year,posts in entries %}
-            <li><a href="#{{ year }}"><i class="icon-chevron-right"></i>{{ year }}</a></li>
-            {% endfor %}
-        </ul>
-    </div><!--  end span3 -->
-    <div class="span9">
-        <div class ="info">
+<article class="topcontent">
             <ul class="listooo">
             {% for year, posts in entries %}
                 <section id="{{ year }}" >
@@ -37,10 +35,7 @@
             {% include 'include/paginator.html' %}
 
             </ul>
-        </div>
-    </div><!-- end span9 -->
-</div>
-
+</article>
 {% endblock %}
 
 

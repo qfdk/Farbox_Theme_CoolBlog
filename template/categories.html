@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}Categories{% endblock %}
-
+{% block menu %}
+        <li><a href="/">Home</a></li>
+        <li><a href="/archive">Archive</a></li>
+        <li class="active"><a href="/categories">Categories</a></li>
+        <li><a href="/archive?use=tags">Tags</a></li>
+        <li><a href="/about.html">About</a></li>
+{% endblock %}
 {% block content %}
-
     <ul class="categories" id="categories">
     {% set categories = get_folders(level=[1,2], min_posts_count=1) %}
     {% for category in  sorted_by_position(categories)%}
@@ -13,11 +18,7 @@
             </a>
         </li>
     {% endfor %}
-
     </ul>
-
-
-
 <script type="text/javascript">
 
     function auto_margin(){
@@ -28,7 +29,6 @@
             e.style.marginLeft = ( width% 306) /2 + 'px';
         }
     }
-
     auto_margin();
 
     window.onresize = auto_margin;

@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
-
+{% block menu %}
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/archive">Archive</a></li>
+        <li><a href="/categories">Categories</a></li>
+        <li><a href="/archive?use=tags">Tags</a></li>
+        <li><a href="/about.html">About</a></li>
+{% endblock %}
 {% block content %}
     {% if configs.posts and posts%}
         {% include 'include/description.html' %}
-
-        <div class="container" id="posts">
         {% include 'include/posts_list.html' %}
-        </div>
-
     {% elif configs.files and files%}
 
         {% include 'include/files_list.html' %}

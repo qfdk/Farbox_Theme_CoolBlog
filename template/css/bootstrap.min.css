@@ -1,11 +1,11 @@
 /*!
  * Bootstrap v2.3.2
  *
- * Copyright 2012 Twitter, Inc
+ * Copyright 2013 Twitter, Inc
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ * Designed and built with all the love in the world by @mdo and @fat.
  */
 .clearfix {
     *zoom: 1
@@ -758,7 +758,7 @@ h4 small {
 
 ul, ol {
     padding: 0;
-    margin: 0 0 10px 25px
+    margin: 5px;
 }
 
 ul ul, ul ol, ol ol, ol ul {
@@ -766,7 +766,7 @@ ul ul, ul ol, ol ol, ol ul {
 }
 
 li {
-    line-height: 20px
+    line-height: 30px;
 }
 
 ul.unstyled, ol.unstyled {
@@ -957,7 +957,7 @@ pre code {
 }
 
 form {
-    margin: 0 0 20px
+    margin: 0 0 10px;
 }
 
 fieldset {
@@ -986,7 +986,7 @@ legend small {
 label, input, button, select, textarea {
     font-size: 14px;
     font-weight: normal;
-    line-height: 20px
+    /* line-height: 20px; */
 }
 
 input, button, select, textarea {
@@ -1017,7 +1017,7 @@ input[type="url"], input[type="search"], input[type="tel"], input[type="color"],
 }
 
 input, textarea, .uneditable-input {
-    width: 206px
+    width: 190px;
 }
 
 textarea {
@@ -1965,7 +1965,7 @@ table td[class*="span"], table th[class*="span"], .row-fluid table td[class*="sp
     *margin-right: .3em;
     line-height: 14px;
     vertical-align: text-top;
-    background-image: url("/t/img/glyphicons-halflings.png");
+    background-image: url("../img/glyphicons-halflings.png");
     background-position: 14px 14px;
     background-repeat: no-repeat
 }
@@ -1978,7 +1978,7 @@ table td[class*="span"], table th[class*="span"], .row-fluid table td[class*="sp
 .dropdown-menu>.active>a>[class^="icon-"], .dropdown-menu>.active>a>[class*=" icon-"],
 .dropdown-submenu:hover>a>[class^="icon-"], .dropdown-submenu:focus>a>[class^="icon-"],
 .dropdown-submenu:hover>a>[class*=" icon-"], .dropdown-submenu:focus>a>[class*=" icon-"] {
-    background-image: url("/t/img/glyphicons-halflings-white.png")
+    background-image: url("../img/glyphicons-halflings-white.png")
 }
 
 .icon-glass {
@@ -4596,7 +4596,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 }
 
 .pager {
-    margin: 20px 0;
+    /* margin: 20px 0; */
     text-align: center;
     list-style: none;
     *zoom: 1
@@ -4618,7 +4618,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 
 .pager li>a, .pager li>span {
     display: inline-block;
-    padding: 5px 14px;
+    padding: 0px 10px;
     background-color: #fff;
     border: 1px solid #ddd;
     -webkit-border-radius: 15px;
