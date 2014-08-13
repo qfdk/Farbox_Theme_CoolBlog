@@ -15,7 +15,7 @@
 
 	<header class="mainHeader">
 		<!-- <img src="/t/img/logo.gif"> -->
-		<h1>清风刀客'S Blog</h1>
+		<h1>{% block title %}{{ site.configs.title or site.title }} {% endblock %}</h1>
 		<nav>
 			<ul>
 				{% block menu %}
