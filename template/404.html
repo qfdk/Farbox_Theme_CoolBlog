@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 {% block title %}HTTP 404{%endblock %}
 {% block menu %}
-<li><a href="/">I</a></li>
-<li><a href="/">can't</a></li>
-<li><a href="/">find</a></li>
-<li><a href="/">this</a></li>
-<li><a href="/">page.</a></li>
+        <li><a href="/">I</a></li>
+        <li><a href="/">can't</a></li>
+        <li><a href="/">find</a></li>
+        <li><a href="/">this</a></li>
+        <li><a href="/">page.</a></li>
 {% endblock %}
 {% block content %}
 <article class="topcontent">
-  <!-- <div class="content"> -->
-  {%  if error %} {{ error | linebreaks }} <hr/> {% endif %}
-  <p> 你所访问的页面、文件并不存在，可能已经被删除了，或者地址错了？ </p>
-  <img class="img-rounded" src="/t/img/404.jpg" alt="" />
-  <div class="links">
-    <a href="/">>去首页看看</a> <a href="/">>Page accueil</a> <a
-    href="http://help.farbox.com/" target="_blank">帮助文档</a>
-  </div>
-  <!-- </div> -->
+ <!-- <div class="content"> -->
+    {%  if error %} {{ error | linebreaks }} <hr/> {% endif %}
+    <p> 你所访问的页面、文件并不存在，可能已经被删除了，或者地址错了？ </p>
+    <img class="img-rounded" src="/t/img/404.jpg" alt="" />
+    <div class="links">
+        <a href="/">>去首页看看</a> <a href="/">>Page accueil</a> <a
+        href="http://help.farbox.com/" target="_blank">帮助文档</a>
+    </div>
+<!-- </div> -->
 </article>
 {% endblock %}

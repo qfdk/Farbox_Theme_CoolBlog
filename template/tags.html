@@ -1,12 +1,38 @@
 {% extends 'base.html' %}
 {% block title %}{{ tags | join(' ') }}{% endblock %}
+
+{% set total_posts = get_posts(limit=300, sort='desc') %}
+{% set entries = group(total_posts, 'tags') %}
+{% set cpt= 1 %}
+
 {% block menu %}
-<li><a href="/">Home</a></li>
-<li><a href="/archive">Archive</a></li>
-<li><a href="/categories">Categories</a></li>
-<li class="active"><a href="/archive?use=tags">Tags</a></li>
-<li><a href="/about">About</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/archive">Archive</a></li>
+        <li><a href="/categories">Categories</a></li>
+        <li class="active"><a href="/tags">Tags</a></li>
+        <li><a href="/about">About</a></li>
 {% endblock %}
+
 {% block content %}
-{% include 'include/posts_list.html' %}
+<article class="topcontent">
+            <ul class="listooo">
+            {% for year, posts in entries %}
+                <section id="{{ year }}" >
+                <h2>{{ year }}</h2>
+                <hr/>
+                <ul class="list-group">
+                {% for post in posts %}
+                    <li class="list-group-item">
+                        <span class="date">{{ post.date | date("%Y-%m-%d") }}</span>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endfor %}
+            </section>
+
+            {% include 'include/paginator.html' %}
+
+            </ul>
+</article>
 {% endblock %}

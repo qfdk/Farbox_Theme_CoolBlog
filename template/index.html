@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 {% block menu %}
-<li class="active"><a href="/">Home</a></li>
-<li><a href="/archive">Archive</a></li>
-<li><a href="/categories">Categories</a></li>
-<li><a href="/archive?use=tags">Tags</a></li>
-<li><a href="/about">About</a></li>
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/archive">Archive</a></li>
+        <li><a href="/categories">Categories</a></li>
+        <li><a href="/tags">Tags</a></li>
+        <li><a href="/about">About</a></li>
 {% endblock %}
 {% block content %}
-{% if configs.posts and posts%}
-{% include 'include/description.html' %}
-{% include 'include/posts_list.html' %}
-{% elif configs.files and files%}
-
-{% include 'include/files_list.html' %}
-
-{% endif %}
+    {% if configs.posts and posts%}
+        {% include 'include/description.html' %}
+        {% include 'include/posts_list.html' %}
+    {% elif configs.files and files%}
+        {% include 'include/files_list.html' %}
+    {% endif %}
 {% endblock %}
