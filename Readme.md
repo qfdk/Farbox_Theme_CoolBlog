@@ -26,9 +26,3 @@
 * 完成于22/06/2014
 * Clermont-Ferrand
 * by 清风刀客
-
-## 赞助
-
-<a href="https://voilapro.app/?ref=github-farbox_theme_coolblog"><img src="voila-banner.png" alt="Voilà Pro" width="500"/></a>
-
-本项目由 [Voilà Pro](https://voilapro.app/?ref=github-farbox_theme_coolblog) 赞助支持 —— macOS 语音输入工具。按住快捷键说话，文字直接落到光标处，中英法混说也能识别。
